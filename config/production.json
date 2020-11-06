@@ -1,0 +1,6 @@
+{
+  "mongoURL": "mongodb+srv://hoang21:dhnowf21@devconnector.gdliy.mongodb.net/DevConnector?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "129e7ac7acd0f35b287a",
+  "githubClientSecret": "4370abc583c3de09582edf10cb7a1948e279a96e"
+}
