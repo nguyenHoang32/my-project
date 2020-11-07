@@ -61,7 +61,7 @@ function Profile({ getProfileById, match, profile: { isLoading, profile } }) {
   useEffect(() => {
     getProfileById(match.params.id);
   }, [getProfileById, match.params]);
-  if (isLoading) return <Typography variant="h3">Loading...</Typography>;
+  if (isLoading || !profile.user) return <Typography variant="h3">Loading...</Typography>;
   const {
     user,
     status,
@@ -77,6 +77,7 @@ function Profile({ getProfileById, match, profile: { isLoading, profile } }) {
  
   return (
     <React.Fragment>
+      
       <Typography gutterBottom>
         <Button variant="contained" component={Link} to="/profiles" startIcon={<KeyboardBackspaceIcon />}>
           Back To Profiles
@@ -89,7 +90,8 @@ function Profile({ getProfileById, match, profile: { isLoading, profile } }) {
         >Edit Profile</Button>
       </Typography>
       <div className={classes.top}>
-        <div>
+        {user && <React.Fragment>
+          <div>
           <img
             src={user && user.avatar}
             style={{ borderRadius: "50%", height: "17em" }}
@@ -99,6 +101,7 @@ function Profile({ getProfileById, match, profile: { isLoading, profile } }) {
         <Typography variant="h2" paragraph style={{ fontWeight: "500" }}>
           {user.name}
         </Typography>
+        </React.Fragment>}
         <Typography paragraph variant="h5">
           {status} {company && `at ${company}`}
         </Typography>
@@ -112,7 +115,7 @@ function Profile({ getProfileById, match, profile: { isLoading, profile } }) {
       </div>
       <Paper className={classes.mid}>
         <Typography variant="h4" color="primary" paragraph>
-          {user.name}'s Bio
+          {user && user.name}'s Bio
         </Typography>
         <Typography variant="subtitle1">{bio ? "No bio" : bio}</Typography>
         <Divider variant="middle" style={{ margin: "3em 0px 3em 0px" }} />

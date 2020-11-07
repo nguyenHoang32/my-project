@@ -45,7 +45,7 @@ export const getProfileById = (id) => async (dispatch) => {
       payload: res.data,
     });
   } catch (error) {
-    dispatch(setAlert(error.response.statusText, "error"));
+    // dispatch(setAlert(error.response.statusText, "error"));
   }
 };
 
@@ -69,9 +69,9 @@ export const updateProfile = (formData, history) => async (dispatch) => {
     history.push("/dashboard");
   } catch (error) {
     const errors = error.response.data.errors;
-    if (errors.length > 0) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, "error")));
-    }
+    // if (errors.length > 0) {
+    //   errors.forEach((error) => dispatch(setAlert(error.msg, "error")));
+    // }
     dispatch({
       type: PROFILE_ERROR,
     });
@@ -96,9 +96,9 @@ export const addExpOrEdu = (formData, history, type) => async (dispatch) => {
     history.push("/dashboard");
   } catch (error) {
     const errors = error.response.data.errors;
-    if (errors.length > 0) {
-      errors.forEach((err) => dispatch(setAlert(err.msg, "error")));
-    }
+    // if (errors.length > 0) {
+    //   errors.forEach((err) => dispatch(setAlert(err.msg, "error")));
+    // }
     dispatch({
       type: PROFILE_ERROR,
     });
@@ -125,7 +125,7 @@ export const getRepos = (name) => async (dispatch) => {
       payload: res.data,
     });
   } catch (error) {
-    dispatch(setAlert(error.response.data.msg, "error"));
+    // dispatch(setAlert(error.response.data.msg, "error"));
   }
 };
 // ---------------------------------------------
