@@ -85,7 +85,7 @@ function Dashboard({
           </Typography>
 
           {JSON.stringify(profile) !== JSON.stringify({}) ? (
-            <Grid item className={classes.marginBottom}>
+            <Grid item className={classes.marginBottom} style={{marginTop: '-1.5em'}}>
               <DashboardAction />
               {!isLoading && profile.education.length > 0 && (
                 <EducationTable

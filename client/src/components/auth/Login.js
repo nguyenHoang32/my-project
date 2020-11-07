@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
@@ -77,7 +77,7 @@ function SignIn({login, isAuth}) {
           Login
         </Button>
         <Typography style={{ marginTop: "1em" }}>
-          Don't have an account? <Button color="primary">Sign Up</Button>
+          Don't have an account? <Button color="primary" component={Link} to="/register">Sign Up</Button>
         </Typography>
       </form>
     </React.Fragment>

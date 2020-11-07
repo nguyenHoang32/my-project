@@ -39,10 +39,8 @@ export const register = ({email, password, name}) => async (dispatch) => {
     dispatch(loadUser());
     
   } catch (error) {
-    const errors = error.response.data.errors;
-    if(errors.length > 0){
-      errors.forEach(error => dispatch(setAlert(error.msg, 'error')));
-    }
+   
+    
     dispatch({
       type: REGISTER_FAIL,
     })
@@ -67,10 +65,8 @@ export const login = ({email, password}) => async dispatch => {
     dispatch(loadUser());
     
   } catch (error) {
-    const errors = error.response.data.errors;
-    if(errors.length > 0){
-      errors.forEach(error => dispatch(setAlert(error.msg, 'error')))
-    }
+    
+    
     dispatch({
       type: LOGIN_FAIL,
     })

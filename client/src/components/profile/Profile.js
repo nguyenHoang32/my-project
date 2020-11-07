@@ -66,15 +66,15 @@ function Profile({ getProfileById, match, profile: { isLoading, profile } }) {
     user,
     status,
     website,
-    
     company,
     location,
     education,
     experience,
     bio,
-    social,
+    
     skills,
   } = profile;
+ 
   return (
     <React.Fragment>
       <Typography gutterBottom>
@@ -91,7 +91,7 @@ function Profile({ getProfileById, match, profile: { isLoading, profile } }) {
       <div className={classes.top}>
         <div>
           <img
-            src={user.avatar}
+            src={user && user.avatar}
             style={{ borderRadius: "50%", height: "17em" }}
             alt=""
           />
